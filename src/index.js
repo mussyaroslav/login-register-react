@@ -9,7 +9,8 @@ import Home from './pages/home/home';
 import Login from './pages/login/login';
 import Register from './pages/register/register';
 
-const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+// const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
 const router = createBrowserRouter([
   {

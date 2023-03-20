@@ -1,10 +1,11 @@
-export const updateUser = (userData, inputLogin, inputPassword) => {
+export const updateUser = (userData, inputLogin, inputPassword, inputCheckbox) => {
   let data = JSON.parse(localStorage.getItem('data')) || [];
   // Проверка, есть ли email уже в массиве данных
   let existingUserIndex = data.findIndex(user => user.login === inputLogin.current.value);
   if (existingUserIndex !== -1) {
     // Обновление пароля если есть
     data[existingUserIndex].password = inputPassword.current.value;
+    data[existingUserIndex].checked = inputCheckbox.current.checked
   } else {
     // Добавление нового пользователя в массив для последующей записи в дату
     data.push(userData);
@@ -32,5 +33,13 @@ export const validatePassword = (inputPassword, errorPassword, userData) => {
   } else {
     errorPassword.current.innerHTML = ''
     userData.password = inputPassword.current.value
+  }
+};
+
+export const validateCheckbox = (inputCheckbox, userData) => {
+  if(inputCheckbox.current.checked === true) {
+    userData.checked = inputCheckbox.current.checked
+  } else {
+    userData.checked = inputCheckbox.current.checked
   }
 };
